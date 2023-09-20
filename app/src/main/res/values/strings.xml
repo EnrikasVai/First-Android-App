@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Testas</string>
+    <string name="title">Student</string>
+    <string name="name">Enrikas Vaičiulis</string>
+    <string name="email">enrikas1010@gmail.com</string>
+    <string name="phone">+37062202273</string>
+    <string name="social">\@EnrikasVai</string>
+    <string name="button">Press me!</string>
+    <string name="bmi">BMI Calculator</string>
+    <string name="height">Enter your height in cm</string>
+    <string name="weight">Enter your weight in kg</string>
+    <string name="enter_your_information">Enter your information</string>
+    <string name="bmi_calculator">BMI Calculator</string>
+    <string name="bmi_bmi">BMI: %1$s</string>
+</resources>
