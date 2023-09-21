@@ -32,6 +32,9 @@ class MainActivity : ComponentActivity() {
                     composable("screen2") {
                         Screen2(navController = navController)
                     }
+                    composable("screen3") {
+                        Screen3(navController = navController)
+                    }
                 }
             }
         }

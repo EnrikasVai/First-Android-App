@@ -146,6 +146,12 @@ fun Info(
         ) {
             Text(text = stringResource(R.string.bmi), fontSize = 24.sp)
         }
+        Button(
+            modifier = Modifier.padding(16.dp),
+            onClick = {  navController.navigate("screen3") },
+        ) {
+            Text(text = stringResource(R.string.scroll_list), fontSize = 24.sp)
+        }
 
     }
 }
