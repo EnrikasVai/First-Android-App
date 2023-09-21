@@ -47,9 +47,8 @@ import androidx.navigation.NavHostController
 fun ComposeCardApp(navController: NavHostController) {
     Scaffold(
         topBar = {
-
             TopAppBar(
-                title = { Text("Home") },
+                title = { Text("My First App") },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer
                 ),
@@ -141,7 +140,7 @@ fun Info(
         }
 
         Button(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(top = 16.dp),
             onClick = {  navController.navigate("screen2") },
         ) {
             Text(text = stringResource(R.string.bmi), fontSize = 24.sp)

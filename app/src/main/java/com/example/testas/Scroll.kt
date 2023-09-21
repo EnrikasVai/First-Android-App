@@ -37,7 +37,7 @@ import com.example.testas.model.Affirmation
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Screen3(navController: NavHostController) {
+fun Scroll(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -63,12 +63,6 @@ fun Screen3(navController: NavHostController) {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Text(
-                        text = stringResource(R.string.scroll_list_name),
-                        modifier = Modifier
-                            .padding(bottom = 16.dp)
-                            .align(alignment = Alignment.Start)
-                    )
                     AffirmationList(
                         affirmationList = Datasource().loadAffirmations(),
                     )
@@ -77,9 +71,6 @@ fun Screen3(navController: NavHostController) {
             }
         }
     )
-}
-@Composable
-fun AffirmationsApp() {
 }
 
 @Composable

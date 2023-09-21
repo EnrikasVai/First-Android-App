@@ -30,11 +30,14 @@ class MainActivity : ComponentActivity() {
 
                     }
                     composable("screen2") {
-                        Screen2(navController = navController)
+                        BMI(navController = navController)
                     }
                     composable("screen3") {
-                        Screen3(navController = navController)
+                        Scroll(navController = navController)
                     }
+                    //composable("screen4") {
+                    //    Grid(navController = navController)
+                    //}
                 }
             }
         }

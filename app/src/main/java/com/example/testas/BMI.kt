@@ -37,7 +37,7 @@ import androidx.navigation.NavHostController
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun Screen2(navController: NavHostController) {
+fun BMI(navController: NavHostController) {
     var heightInput by remember { mutableStateOf("") }
     var weightInput by remember { mutableStateOf("") }
     val weight = weightInput.toDoubleOrNull() ?: 0.0
