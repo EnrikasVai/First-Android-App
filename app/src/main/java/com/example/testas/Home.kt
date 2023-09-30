@@ -7,10 +7,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -34,6 +37,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -45,6 +49,10 @@ import androidx.navigation.NavHostController
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun ComposeCardApp(navController: NavHostController) {
+    val configuration = LocalConfiguration.current
+    val screenHeightDp = configuration.screenHeightDp.dp
+    val isSmallScreen = screenHeightDp < 720.dp // Adjust this threshold as needed
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -62,31 +70,38 @@ fun ComposeCardApp(navController: NavHostController) {
             )
         },
         content = {
-            Column(
+            LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
-                Info(
-                    navController = navController, // Pass the navController here
-                    title = stringResource(R.string.title),
-                    name = stringResource(R.string.name),
-                    imagePainter = painterResource(R.drawable.android_logo),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f)
-                )
-                Contact(
-                    email = stringResource(R.string.email),
-                    phone = stringResource(R.string.phone),
-                    social = stringResource(R.string.social),
-                    imagePhone = painterResource(R.drawable.phone),
-                    imageHub = painterResource(R.drawable.hub),
-                    imageEmail = painterResource(R.drawable.mail),
-                    modifier = Modifier.padding(top = 16.dp)
-                )
+                item {
+                    Info(
+                        navController = navController,
+                        title = stringResource(R.string.title),
+                        name = stringResource(R.string.name),
+                        imagePainter = painterResource(R.drawable.android_logo),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    )
+                }
+                if (!isSmallScreen) {
+                    item {
+                        Contact(
+                            email = stringResource(R.string.email),
+                            phone = stringResource(R.string.phone),
+                            social = stringResource(R.string.social),
+                            imagePhone = painterResource(R.drawable.phone),
+                            imageHub = painterResource(R.drawable.hub),
+                            imageEmail = painterResource(R.drawable.mail),
+                            modifier = Modifier.padding(top = 16.dp)
+                        )
+                    }
+                }
             }
-        })
+        }
+    )
 }
+
 @Composable
 fun Info(
     navController: NavHostController,
@@ -104,7 +119,7 @@ fun Info(
     ) {
         Box(
             modifier = Modifier
-                .padding(top = 60.dp)
+                .padding(top = 100.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .size(100.dp)
                 .background(color = backgroundColor) // Use labeled argument to specify color
@@ -129,6 +144,8 @@ fun Info(
             modifier = Modifier.padding(16.dp),
             fontSize = 18.sp
         )
+        
+        Spacer(modifier = Modifier.height(50.dp))
 
         Button(
             onClick = {
