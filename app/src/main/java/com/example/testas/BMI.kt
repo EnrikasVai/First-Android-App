@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -99,7 +100,19 @@ fun BMI(navController: NavHostController) {
                         text = stringResource(R.string.bmi_bmi, formattedBMI), // Display the calculated BMI here
                         style = MaterialTheme.typography.displaySmall
                     )
-                    Spacer(modifier = Modifier.height(150.dp))
+                    Spacer(modifier = Modifier.height(50.dp))
+
+                    Text(
+                        text = "BMI < 18,5 - UNDERWEIGHT\n" +
+                                "BMI  between 18,5 and 24,9 - NORMAL\n" +
+                                "BMI  between 25,0 and 29,9 - OVERWEIGHT\n" +
+                                "BMI > 30 - OBESE",
+                        modifier = Modifier
+                            .padding(bottom = 16.dp)
+                            .align(alignment = Alignment.Start),
+                        fontSize = 13.sp
+
+                    )
                 }
             }
         }
