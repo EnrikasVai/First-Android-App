@@ -29,6 +29,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -49,6 +51,16 @@ fun BMI(navController: NavHostController) {
     // Round the BMI result to one decimal place
     val formattedBMI = "%.1f".format(bmi)
 
+    val screenHeightDp = with(LocalDensity.current) {
+        LocalView.current.resources.displayMetrics.heightPixels / density
+    }
+
+    val textSizeSp = if (screenHeightDp > 720) {
+        18.sp
+    } else {
+        13.sp
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -67,7 +79,7 @@ fun BMI(navController: NavHostController) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(top = 56.dp) // Adjust this value as needed
+                    .padding(top = 56.dp)
             ) {
                 Column(
                     modifier = Modifier.padding(40.dp),
@@ -97,20 +109,19 @@ fun BMI(navController: NavHostController) {
                             .fillMaxWidth()
                     )
                     Text(
-                        text = stringResource(R.string.bmi_bmi, formattedBMI), // Display the calculated BMI here
+                        text = stringResource(R.string.bmi_bmi, formattedBMI),
                         style = MaterialTheme.typography.displaySmall
                     )
                     Spacer(modifier = Modifier.height(50.dp))
 
                     Text(
-                        text = "BMI < 18,5 - UNDERWEIGHT\n" +
-                                "BMI  between 18,5 and 24,9 - NORMAL\n" +
-                                "BMI  between 25,0 and 29,9 - OVERWEIGHT\n" +
-                                "BMI > 30 - OBESE",
+                        text = stringResource(R.string.bmi_18_5_underweight) +
+                                stringResource(R.string.bmi_between_18_5_and_24_9_normal) +
+                                stringResource(R.string.bmi_between_25_0_and_29_9_overweight) +
+                                stringResource(R.string.bmi_30_obese),
                         modifier = Modifier
-                            .padding(bottom = 16.dp)
                             .align(alignment = Alignment.Start),
-                        fontSize = 13.sp
+                        fontSize = textSizeSp
 
                     )
                 }
@@ -139,7 +150,7 @@ fun EditNumberField(
 ) {
     TextField(
         value = value,
-        onValueChange = onValueChange, // Corrected parameter name
+        onValueChange = onValueChange,
         singleLine = true,
         label = { Text(stringResource(label)) },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),

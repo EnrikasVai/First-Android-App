@@ -12,7 +12,7 @@
     <string name="enter_your_information">Enter your information</string>
     <string name="bmi_calculator">BMI Calculator</string>
     <string name="bmi_bmi">BMI: %1$s</string>
-    <string name="scroll_list">Scroll list</string>
+    <string name="scroll_list">Pictures</string>
     <string name="scroll_list_name">Scroll List</string>
     <string name="affirmation1">I am strong.</string>
     <string name="affirmation2">I believe in myself.</string>
@@ -24,4 +24,8 @@
     <string name="affirmation8">I have the courage to follow my heart.</string>
     <string name="affirmation9">Things will unfold at precisely the right time.</string>
     <string name="affirmation10">I will be present in all the moments that this day brings.</string>
+    <string name="bmi_30_obese"><![CDATA[BMI > 30 - OBESE]]></string>
+    <string name="bmi_between_25_0_and_29_9_overweight">BMI  between 25,0 and 29,9 - OVERWEIGHT\n\n</string>
+    <string name="bmi_between_18_5_and_24_9_normal">BMI  between 18,5 and 24,9 - NORMAL\n\n</string>
+    <string name="bmi_18_5_underweight"><![CDATA[BMI < 18,5 - UNDERWEIGHT\n\n]]></string>
 </resources>

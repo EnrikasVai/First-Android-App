@@ -51,7 +51,7 @@ import androidx.navigation.NavHostController
 fun ComposeCardApp(navController: NavHostController) {
     val configuration = LocalConfiguration.current
     val screenHeightDp = configuration.screenHeightDp.dp
-    val isSmallScreen = screenHeightDp < 720.dp // Adjust this threshold as needed
+    val isSmallScreen = screenHeightDp < 720.dp
 
     Scaffold(
         topBar = {
@@ -149,7 +149,6 @@ fun Info(
 
         Button(
             onClick = {
-                // Update the background color when the button is clicked
                 backgroundColor = Color((0xFF000000..0xFF999999).random())
             },
         ) {
