@@ -4,9 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -61,13 +59,8 @@ fun Scroll(navController: NavHostController) {
             )
         },
         content = {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(top = 56.dp) // Adjust this value as needed
-            ) {
                 Column(
-                    modifier = Modifier.padding(40.dp),
+                    modifier = Modifier.padding(top = 60.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
@@ -75,8 +68,6 @@ fun Scroll(navController: NavHostController) {
                         affirmationList = Datasource().loadAffirmations(),
                     )
                 }
-
-            }
         }
     )
 }
